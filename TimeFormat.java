@@ -1,17 +1,37 @@
-// Represents the hh:mm time format using an AM/PM format. 
 public class TimeFormat {
-	public static void main(String[] args) {
-		// In Java, the command-line arguments args[0], args[1], ... are represented
-		// each by a string. In this program, the single "hh:mm" input is represented
-		// by the single command-line string argument args[0]. 
-		//   
-		// The following statement handles the hours part of the input.
-		// It concatenates the empty string "" with the leftmost hour-digit. 
-		// It then concatenates the resulting string with the rightmost hour-digit,
-		// and then uses parseInt to cast the resulting string as an int.
-		int hours = Integer.parseInt("" + args[0].charAt(0) + args[0].charAt(1));
-		// Does the same with the minutes part of the input.
-		int minutes = Integer.parseInt("" + args[0].charAt(3) + args[0].charAt(4));
-        // Replace this comment with the rest of your code
-	}
+
+    public static void main(String[] args) {
+        if (args.length != 1) {
+            System.out.println("Error: Expected 1 argument (time in 24-hour format)");
+            return;
+        }
+
+        String time = args[0];
+        String[] parts = time.split(":");
+        int hour = Integer.parseInt(parts[0]);
+        int minute = Integer.parseInt(parts[1]);
+
+        String period; // AM or PM
+        String formattedTime;
+
+        if (hour == 0) {
+            // Special case for midnight
+            period = "AM";
+            formattedTime = String.format("0:%02d %s", minute, period);
+        } else if (hour < 12) {
+            // Morning hours (1 to 11 AM)
+            period = "AM";
+            formattedTime = String.format("%d:%02d %s", hour, minute, period);
+        } else if (hour == 12) {
+            // Noon
+            period = "PM";
+            formattedTime = String.format("%d:%02d %s", hour, minute, period);
+        } else {
+            // Afternoon and evening hours (1 to 11 PM)
+            period = "PM";
+            formattedTime = String.format("%d:%02d %s", hour - 12, minute, period);
+        }
+
+        System.out.println(formattedTime);
+    }
 }
