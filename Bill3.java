@@ -25,8 +25,8 @@ public class Bill3 {
             name3 = temp;
         }
 
-        // Step 2: Calculate amount per person, rounded to 1 decimal place
-        double amountPerPerson = Math.round((billAmount / 3) * 10.0) / 10.0;
+        // Step 2: Calculate the amount each person pays, rounded to 1 decimal place
+        double amountPerPerson = Math.round((billAmount / 3) * 10) / 10.0;
 
         // Step 3: Print result with correct formatting
         System.out.printf("Dear %s, %s, and %s: pay %.1f Shekels each.%n", name1, name2, name3, amountPerPerson);
