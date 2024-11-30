@@ -13,8 +13,8 @@ public class Bill3 {
         // Sort names in reverse alphabetical order
         sortNamesReverse(names);
 
-        // Calculate the amount each person pays and round to one decimal place
-        double amountPerPerson = Math.round((billAmount / 3) * 10.0) / 10.0;
+        // Calculate the amount each person pays and round UP to one decimal place
+        double amountPerPerson = Math.ceil((billAmount / 3) * 10.0) / 10.0;
 
         // Print the output
         System.out.printf(
@@ -37,3 +37,5 @@ public class Bill3 {
         }
     }
 }
+
+       
