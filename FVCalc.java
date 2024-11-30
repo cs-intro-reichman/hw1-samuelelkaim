@@ -1,24 +1,20 @@
 public class FVCalc {
 
     public static void main(String[] args) {
+        if (args.length != 3) {
+            System.out.println("Error: Expected 3 arguments (initial savings, interest rate, number of years)");
+            return;
+        }
 
-        String currentValue = args[0];
-        String rate = args[1];
-        String year = args[2];
+        // Parse input arguments
+        double savings = Double.parseDouble(args[0]);
+        double rate = Double.parseDouble(args[1]) / 100; // Convert percentage to decimal
+        int years = Integer.parseInt(args[2]);
 
-        double curval = Double.parseDouble(currentValue);
-        double rate_double = Double.parseDouble(rate);
-        int year_int = Integer.parseInt(year);
+        // Calculate future value
+        double futureValue = savings * Math.pow(1 + rate, years);
 
-        double future_rate = (1 + (rate_double / 100));
-
-        double result = Math.pow(future_rate, year_int);
-
-        double future_val = curval * result;
-
-        System.out.println(
-                "After 2 years, $" + (int) curval + " saved at " + rate_double + "% will yield $" + (int) future_val);
-
+        // Output the result
+        System.out.printf("After %d years, a $%.0f saved at %.1f%% will yield $%.0f%n", years, savings, rate * 100, futureValue);
     }
-
 }
