@@ -1,3 +1,4 @@
+
 public class Bill3 {
 
     public static void main(String[] args) {
@@ -6,8 +7,9 @@ public class Bill3 {
             return;
         }
 
-        String[] names = {args[0], args[1], args[2]}; // First 3 arguments are names
-        double billAmount = Double.parseDouble(args[3]); // Fourth argument is the bill amount
+        // Extract names and bill amount from input
+        String[] names = {args[0], args[1], args[2]};
+        double billAmount = Double.parseDouble(args[3]);
 
         // Sort names in reverse alphabetical order
         Arrays.sort(names, Collections.reverseOrder());
@@ -15,11 +17,7 @@ public class Bill3 {
         // Calculate the amount each person pays
         double amountPerPerson = billAmount / 3;
 
-        // Construct the output message
+        // Print the result
         System.out.printf("Dear %s, %s, and %s: pay %.1f Shekels each.%n", names[0], names[1], names[2], amountPerPerson);
     }
-
-
-
-
-
+}
