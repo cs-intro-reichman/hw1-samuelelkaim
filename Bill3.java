@@ -6,24 +6,24 @@ public class Bill3 {
             return;
         }
 
-        // Get names and bill amount
+        // Extract names and bill amount
         String[] names = {args[0], args[1], args[2]};
         double billAmount = Double.parseDouble(args[3]);
 
         // Sort names in reverse alphabetical order manually
         sortNamesReverse(names);
 
-        // Calculate the amount each person pays
-        double amountPerPerson = billAmount / 3;
+        // Calculate the amount each person pays and round to nearest whole number
+        double amountPerPerson = Math.round(billAmount / 3);
 
-        // Construct and print the output message
+        // Print the output
         System.out.printf(
-            "Dear %s, %s, and %s: pay %.1f Shekels each.%n",
+            "Dear %s, %s, and %s: pay %.0f Shekels each.%n",
             names[0], names[1], names[2], amountPerPerson
         );
     }
 
-    // Custom method to sort names in reverse alphabetical order
+    // Manual method to sort names in reverse alphabetical order
     private static void sortNamesReverse(String[] names) {
         for (int i = 0; i < names.length - 1; i++) {
             for (int j = i + 1; j < names.length; j++) {
@@ -37,5 +37,3 @@ public class Bill3 {
         }
     }
 }
-
-
