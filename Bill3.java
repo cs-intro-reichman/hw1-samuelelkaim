@@ -10,15 +10,15 @@ public class Bill3 {
         String[] names = {args[0], args[1], args[2]};
         double billAmount = Double.parseDouble(args[3]);
 
-        // Sort names in reverse alphabetical order manually
+        // Sort names in reverse alphabetical order
         sortNamesReverse(names);
 
-        // Calculate the amount each person pays and round to nearest whole number
-        double amountPerPerson = Math.round(billAmount / 3);
+        // Calculate the amount each person pays and round to one decimal place
+        double amountPerPerson = Math.round((billAmount / 3) * 10.0) / 10.0;
 
         // Print the output
         System.out.printf(
-            "Dear %s, %s, and %s: pay %.0f Shekels each.%n",
+            "Dear %s, %s, and %s: pay %.1f Shekels each.%n",
             names[0], names[1], names[2], amountPerPerson
         );
     }
@@ -37,3 +37,5 @@ public class Bill3 {
         }
     }
 }
+
+    
