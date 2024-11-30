@@ -23,7 +23,7 @@ public class Bill3 {
         );
     }
 
-    // Manual method to sort names in reverse alphabetical order
+    // Method to sort names in reverse alphabetical order manually
     private static void sortNamesReverse(String[] names) {
         for (int i = 0; i < names.length - 1; i++) {
             for (int j = i + 1; j < names.length; j++) {
@@ -37,5 +37,3 @@ public class Bill3 {
         }
     }
 }
-
-    
