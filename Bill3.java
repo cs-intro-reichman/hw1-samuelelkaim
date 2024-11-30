@@ -1,7 +1,7 @@
 public class Bill3 {
 
     public static void main(String[] args) {
-        // Assume inputs: 3 names and a bill amount
+        // Inputs: 3 names and a bill amount
         String name1 = args[0];
         String name2 = args[1];
         String name3 = args[2];
@@ -25,13 +25,12 @@ public class Bill3 {
             name3 = temp;
         }
 
-        // Calculate payment per person using exact rounding
+        // Fix rounding: Ensure precision matches expectations
         double exactPayment = billAmount / 3.0;
-        double amountPerPerson = Math.round(exactPayment * 10) / 10.0;
+        double amountPerPerson = Math.round(exactPayment * 100.0) / 100.0; // Round to 2 decimals
+        amountPerPerson = Math.round(amountPerPerson * 10.0) / 10.0; // Round to 1 decimal
 
         // Print the result in the correct format
         System.out.printf("Dear %s, %s, and %s: pay %.1f Shekels each.%n", name1, name2, name3, amountPerPerson);
     }
 }
-
- 
