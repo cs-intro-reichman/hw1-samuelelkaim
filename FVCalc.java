@@ -14,6 +14,9 @@ public class FVCalc {
         // Calculate future value
         double futureValue = savings * Math.pow(1 + rate, years);
 
+        // Round down the result to the nearest integer
+        futureValue = Math.floor(futureValue);
+
         // Output the result
         System.out.printf("After %d years, a $%.0f saved at %.1f%% will yield $%.0f%n", years, savings, rate * 100, futureValue);
     }
