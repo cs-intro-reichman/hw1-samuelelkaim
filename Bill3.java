@@ -13,8 +13,8 @@ public class Bill3 {
         // Sort names in reverse alphabetical order
         sortNamesReverse(names);
 
-        // Calculate the amount each person pays and round UP to one decimal place
-        double amountPerPerson = Math.ceil((billAmount / 3) * 10.0) / 10.0;
+        // Calculate the amount each person pays, rounded to one decimal place
+        double amountPerPerson = Math.ceil((billAmount / 3) * 10) / 10;
 
         // Print the output
         System.out.printf(
@@ -23,8 +23,8 @@ public class Bill3 {
         );
     }
 
-    // Method to sort names in reverse alphabetical order manually
     private static void sortNamesReverse(String[] names) {
+        // Simple bubble sort for reverse alphabetical order
         for (int i = 0; i < names.length - 1; i++) {
             for (int j = i + 1; j < names.length; j++) {
                 if (names[i].compareTo(names[j]) < 0) {
@@ -37,5 +37,3 @@ public class Bill3 {
         }
     }
 }
-
-       
