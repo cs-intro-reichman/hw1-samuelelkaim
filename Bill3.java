@@ -1,36 +1,15 @@
+// Splits a restaurant bill evenly among three diners.
 public class Bill3 {
-
     public static void main(String[] args) {
-        // Inputs: 3 names and a bill amount
-        String name1 = args[0];
-        String name2 = args[1];
-        String name3 = args[2];
-        double billAmount = Double.parseDouble(args[3]);
+        
+        String Name1 = args[0];
+        String Name2 = args[1];
+        String Name3 = args[2];
+        int bill = Integer.parseInt(args[3]);
 
-        // Sort names in reverse alphabetical order
-        String temp;
-        if (name1.compareTo(name2) < 0) {
-            temp = name1;
-            name1 = name2;
-            name2 = temp;
-        }
-        if (name1.compareTo(name3) < 0) {
-            temp = name1;
-            name1 = name3;
-            name3 = temp;
-        }
-        if (name2.compareTo(name3) < 0) {
-            temp = name2;
-            name2 = name3;
-            name3 = temp;
-        }
+        double pay = Math.ceil(bill / 3.0);
 
-        // Fix rounding: Ensure precision matches expectations
-        double exactPayment = billAmount / 3.0;
-        double amountPerPerson = Math.round(exactPayment * 100.0) / 100.0; // Round to 2 decimals
-        amountPerPerson = Math.round(amountPerPerson * 10.0) / 10.0; // Round to 1 decimal
-
-        // Print the result in the correct format
-        System.out.printf("Dear %s, %s, and %s: pay %.1f Shekels each.%n", name1, name2, name3, amountPerPerson);
+        System.out.println("Dear " + Name3 + ", " + Name2 + ", and " + Name1 + ": pay " + pay + " Shekels each.");
     }
 }
+       
